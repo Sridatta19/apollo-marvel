@@ -11,9 +11,28 @@
     "prettier": "prettier --config ./.prettierrc --write src/**/*.ts"
   },
   "devDependencies": {
+    "husky": "1.2.0",
+    "lint-staged": "8.1.0",
     "prettier": "1.15.2",
     "tslint": "5.11.0",
     "tslint-config-prettier": "1.16.0",
     "typescript": "3.1.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.ts": [
+        "tslint --fix",
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "node_modules"
+    ]
   }
 }

@@ -1,0 +1,9 @@
+{
+  "name": "apollo-marvel",
+  "version": "0.1.0",
+  "description": "An Apollo-Server based graphql backend for Marvel API",
+  "main": "index.js",
+  "repository": "git@github.com:Sridatta19/apollo-marvel.git",
+  "author": "Sridatta P",
+  "license": "MIT"
+}

@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:Sridatta19/apollo-marvel.git",
   "author": "Sridatta P",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "1.15.2"
+  }
 }

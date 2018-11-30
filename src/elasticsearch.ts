@@ -1,21 +1,27 @@
 import elasticsearch from 'elasticsearch';
+import { MARVEL_INDEX, USER_DOC_TYPE } from './utils/constants';
 
-// const host = `${process.env.ELASTIC_SEARCH_PROTOCOL}://${process.env.ELASTIC_SEARCH_HOST}:${process.env.ELASTIC_SEARCH_PORT}`
-const host = 'http://localhost:9200';
-const indexName = 'marvel';
-const docType = 'user';
+const createStore = () => {
+  const client = new elasticsearch.Client({
+    host: `${process.env.ELASTIC_SEARCH_PROTOCOL}://${process.env.ELASTIC_SEARCH_HOST}:${
+      process.env.ELASTIC_SEARCH_PORT
+    }`,
+  });
 
-const client = new elasticsearch.Client({
-  host,
-});
+  const users = {
+    addUser: async (body: any) =>
+      client.index({
+        index: MARVEL_INDEX,
+        type: USER_DOC_TYPE,
+        body: {
+          userData: body,
+        },
+      }),
+  };
 
-const store = {
-  addUser: async (body: any) =>
-    client.index({
-      index: indexName,
-      type: docType,
-      body,
-    }),
+  return {
+    users,
+  };
 };
 
-export default store;
+export default createStore;

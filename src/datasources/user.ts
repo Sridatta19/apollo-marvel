@@ -10,7 +10,7 @@ export default class UserAPI extends DataSource {
 
   createUser = async (response: any) => {
     // TODO: Modify USer Creation
-    const res = await this.store.addUser(response);
+    const res = await this.store.users.addUser(response);
     return res;
   };
 }

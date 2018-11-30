@@ -8,9 +8,11 @@ import CharacterAPI from './datasources/character';
 import EventsAPI from './datasources/event';
 import UserAPI from './datasources/user';
 
-import store from './elasticsearch';
+import createStore from './elasticsearch';
 
 dotenv.config({ path: 'variables.env' });
+
+const store = createStore();
 
 const dataSources = () => ({
   characterAPI: new CharacterAPI(),

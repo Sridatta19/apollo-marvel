@@ -13,7 +13,7 @@ export default class BaseAPI extends RESTDataSource {
       host: process.env.PROXY_HOST as string,
     };
     this.requestConfig = {
-      proxy: proxyConfig,
+      // proxy: proxyConfig,
     };
   }
 

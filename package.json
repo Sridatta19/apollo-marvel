@@ -15,9 +15,20 @@
     "prettier": "prettier --config ./.prettierrc --write src/**/*.ts",
     "test:cucumber": "node_modules/.bin/cucumber-js --tags '(not @todo)' --require-module ts-node/register --require spec/cucumber/steps/**/*.ts spec/cucumber/features"
   },
+  "dependencies": {
+    "apollo-datasource": "^0.2.1",
+    "apollo-datasource-rest": "^0.2.0",
+    "apollo-server": "^2.2.2",
+    "axios": "^0.18.0",
+    "dotenv": "^6.1.0",
+    "elasticsearch": "^15.2.0",
+    "graphql": "^14.0.2",
+    "md5": "^2.2.1"
+  },
   "devDependencies": {
     "@types/cucumber": "^4.0.4",
     "@types/dotenv": "6.1.0",
+    "@types/elasticsearch": "^5.0.30",
     "@types/express": "4.16.0",
     "@types/graphql": "14.0.3",
     "@types/md5": "2.1.33",
@@ -50,13 +61,5 @@
     "ignore": [
       "node_modules"
     ]
-  },
-  "dependencies": {
-    "apollo-datasource-rest": "^0.2.0",
-    "apollo-server": "^2.2.2",
-    "axios": "^0.18.0",
-    "dotenv": "^6.1.0",
-    "graphql": "^14.0.2",
-    "md5": "^2.2.1"
   }
 }

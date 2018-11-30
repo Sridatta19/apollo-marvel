@@ -8,6 +8,11 @@ const resolvers: IResolvers[] = [
         return {
           ...character,
         };
+        // TODO: Modify and move to user Create Mutation
+        // const character = await dataSources.userAPI.createUser(characterId);
+        // return {
+        //   ...character,
+        // };
       },
       findCharacters: async (_, { nameStartsWith, limit }, { dataSources }) => {
         return dataSources.characterAPI.getCharacters(nameStartsWith, limit);

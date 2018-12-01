@@ -1,7 +1,7 @@
 import BaseAPI from './base';
 
 export default class EventsAPI extends BaseAPI {
-  populateEvent = (events: any): any => {
+  populateEvent = (events: Array<{ [key: string]: any }>): any => {
     const [eventDTO] = events;
     const {
       id,

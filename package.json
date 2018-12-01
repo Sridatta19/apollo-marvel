@@ -23,7 +23,8 @@
     "dotenv": "^6.1.0",
     "elasticsearch": "^15.2.0",
     "graphql": "^14.0.2",
-    "md5": "^2.2.1"
+    "md5": "^2.2.1",
+    "nodemailer": "^4.7.0"
   },
   "devDependencies": {
     "@types/cucumber": "^4.0.4",
@@ -33,6 +34,7 @@
     "@types/graphql": "14.0.3",
     "@types/md5": "2.1.33",
     "@types/node": "10.12.10",
+    "@types/nodemailer": "^4.6.5",
     "concurrently": "4.1.0",
     "cucumber": "^5.0.2",
     "husky": "1.2.0",

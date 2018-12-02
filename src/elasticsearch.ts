@@ -13,8 +13,16 @@ const createStore = () => {
       client.index({
         index: MARVEL_INDEX,
         type: USER_DOC_TYPE,
+        body,
+      }),
+    searchUsers: async (match: any) =>
+      client.count({
+        index: MARVEL_INDEX,
+        type: USER_DOC_TYPE,
         body: {
-          userData: body,
+          query: {
+            match,
+          },
         },
       }),
   };

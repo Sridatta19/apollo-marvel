@@ -16,13 +16,13 @@ export default class CharacterAPI extends BaseAPI {
       thumbnail: `${characterDTO.thumbnail.path}.${characterDTO.thumbnail.extension}`,
       resourceURI: characterDTO.resourceURI,
       events: characterDTO.events.items.map((event: any) => ({
-        id: event.resourceURI.substring(event.resourceURI.lastIndexOf('/') + 1),
+        id: event.resourceURI.substring((event.resourceURI as string).lastIndexOf('/') + 1),
         title: event.name,
       })),
     };
   };
 
-  async getCharacter(characterId: number) {
+  async getCharacter(characterId: number): Promise<any> {
     const res = await this.getJSON(`characters/${characterId}`);
     const {
       data: {
@@ -32,7 +32,7 @@ export default class CharacterAPI extends BaseAPI {
     return this.populateCharacter(characterResponse);
   }
 
-  async getCharacters(nameStartsWith: string, limit: number = 10) {
+  async getCharacters(nameStartsWith: string, limit: number = 10): Promise<any> {
     const res = await this.getJSON(`characters`, {
       nameStartsWith,
       limit,

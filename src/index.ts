@@ -14,7 +14,7 @@ dotenv.config({ path: 'variables.env' });
 
 const store = createStore();
 
-const dataSources = () => ({
+const dataSources = (): any => ({
   characterAPI: new CharacterAPI(),
   eventsAPI: new EventsAPI(),
   userAPI: new UserAPI({ store }),

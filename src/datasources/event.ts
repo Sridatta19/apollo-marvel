@@ -21,7 +21,7 @@ export default class EventsAPI extends BaseAPI {
       characters:
         characters.items &&
         characters.items.map((character: any) => ({
-          id: character.resourceURI.substring(character.resourceURI.lastIndexOf('/') + 1),
+          id: character.resourceURI.substring((character.resourceURI as string).lastIndexOf('/') + 1),
           name: character.name,
         })),
     };

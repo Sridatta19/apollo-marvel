@@ -3,11 +3,14 @@
     "titleBar.activeBackground": "#BADA55",
     "titleBar.inactiveBackground": "#F1F1F1",
   },
-  "tslint.exclude": "**/node_modules/**/*.ts",
+  "eslint.validate": ["javascript", "typescript"],
   "search.exclude": {
     "**/dist": true
   },
   "files.watcherExclude": {
+    "**/dist": true
+  },
+  "files.exclude": {
     "**/dist": true
   }
 }

@@ -1,4 +1,5 @@
 import { IResolvers } from 'apollo-server';
+import DataLoader from 'dataloader';
 
 const resolvers: IResolvers[] = [
   {
@@ -26,6 +27,15 @@ const resolvers: IResolvers[] = [
         return {
           ...event,
         };
+      },
+    },
+    Event: {
+      characters(parent, _, { dataSources }) {
+        const charIds = parent.characters.map((character: any) => character.id);
+        const charLoader = new DataLoader(async keys => {
+          return await Promise.all(keys.map(key => dataSources.characterAPI.getCharacter(key)));
+        });
+        return Promise.all(charIds.map((id: any) => charLoader.load(id)));
       },
     },
   },

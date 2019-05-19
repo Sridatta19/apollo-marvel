@@ -25,7 +25,7 @@ export default class BaseAPI extends RESTDataSource {
 
   getJSON = (path: string, initparams: any = {}): any => {
     return axios.get(`${this.baseURL}${path}?${this.queryString()}`, {
-      ...initparams,
+      params: initparams,
     });
   };
 }

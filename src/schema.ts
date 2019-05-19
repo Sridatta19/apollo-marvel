@@ -16,7 +16,11 @@ const schema: DocumentNode = gql`
     description: String
     thumbnail: String
     resourceURI: String
-    events: [Event]!
+    creators: [Creator!]
+    comics: [Comic!]
+    stories: [Story!]
+    events: [Event!]
+    series: [Series!]
   }
 
   type Event {
@@ -24,7 +28,91 @@ const schema: DocumentNode = gql`
     title: String
     description: String
     thumbnail: String
-    characters: [Character]!
+    start: String
+    end: String
+    url: [Url!]
+    characters: [Character!]
+    creators: [Creator!]
+    comics: [Comic!]
+    stories: [Story!]
+    series: [Series!]
+  }
+
+  type Comic {
+    id: String
+    title: String
+    issueNumber: Int
+    description: String
+    isbn: String
+    format: String
+    pageCount: String
+    textObjects: [TextObject!]
+    images: [Image!]
+    thumbnail: Image
+    creators: [Creator!]
+    characters: [Character!]
+    stories: [Story!]
+    events: [Event!]
+    series: [Series!]
+  }
+
+  type Creator {
+    id: String
+    firstName: String
+    middleName: String
+    lastName: String
+    suffix: String
+    fullName: String
+    thumbnail: Image
+    comics: [Comic!]
+    characters: [Character!]
+    stories: [Story!]
+    events: [Event!]
+    series: [Series!]
+  }
+
+  type Series {
+    id: String
+    title: String
+    description: String
+    startYear: Int
+    endYear: Int
+    rating: String
+    thumbnail: Image
+    comics: [Comic!]
+    characters: [Character!]
+    stories: [Story!]
+    events: [Event!]
+    creators: [Creator!]
+  }
+
+  type Story {
+    id: String
+    title: String
+    description: String
+    type: String
+    thumbnail: Image
+    comics: [Comic!]
+    characters: [Character!]
+    series: [Series!]
+    events: [Event!]
+    creators: [Creator!]
+  }
+
+  type TextObject {
+    type: String
+    language: String
+    text: String
+  }
+
+  type Image {
+    path: String
+    extension: String
+  }
+
+  type Url {
+    type: String
+    url: String
   }
 
   # The "Query" type is the root of all GraphQL queries.
@@ -32,7 +120,7 @@ const schema: DocumentNode = gql`
   type Query {
     getCharacterById(characterId: Int): Character
     getEventById(eventId: Int): Event
-    findCharacters(limit: Int, nameStartsWith: String, offset: Int, orderBy: String): [Character]!
+    findCharacters(limit: Int, nameStartsWith: String, offset: Int, orderBy: String): [Character!]!
   }
 `;
 

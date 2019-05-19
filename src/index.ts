@@ -9,14 +9,14 @@ import EventsAPI from './datasources/event';
 import UserAPI from './datasources/user';
 
 import createStore from './elasticsearch';
+import EntityAPI from './datasources/entity';
 
 dotenv.config({ path: 'variables.env' });
 
 const store = createStore();
 
 const dataSources = (): any => ({
-  characterAPI: new CharacterAPI(),
-  eventsAPI: new EventsAPI(),
+  entityAPI: new EntityAPI(),
   userAPI: new UserAPI({ store }),
 });
 

@@ -63,7 +63,7 @@ const schema: DocumentNode = gql`
     lastName: String
     suffix: String
     fullName: String
-    thumbnail: Image
+    thumbnail: String
     comics: [Comic!]
     characters: [Character!]
     stories: [Story!]
@@ -118,9 +118,18 @@ const schema: DocumentNode = gql`
   # The "Query" type is the root of all GraphQL queries.
   # (A "Mutation" type will be covered later on.)
   type Query {
-    getCharacterById(characterId: Int): Character
-    getEventById(eventId: Int): Event
+    findCharacterById(id: Int!): Character
     findCharacters(limit: Int, nameStartsWith: String, offset: Int, orderBy: String): [Character!]!
+    findCreatorById(id: Int!): Creator
+    findCreators(limit: Int, nameStartsWith: String, offset: Int, orderBy: String): [Creator!]!
+    findEventById(id: Int!): Event
+    findEvents(limit: Int, nameStartsWith: String, offset: Int, orderBy: String): [Event!]!
+    findComicById(id: Int!): Comic
+    findComics(limit: Int, nameStartsWith: String, offset: Int, orderBy: String): [Comic!]!
+    findSeriesById(id: Int!): Series
+    findSeries(limit: Int, nameStartsWith: String, offset: Int, orderBy: String): [Series!]!
+    findStoryById(id: Int!): Story
+    findStories(limit: Int, nameStartsWith: String, offset: Int, orderBy: String): [Story!]!
   }
 `;
 
